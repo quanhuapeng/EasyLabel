@@ -1,26 +1,19 @@
-# EasyLabel
+//
+//  ViewController.swift
+//  Demo
+//
+//  Created by Quanhua Peng on 2021/2/22.
+//
 
-支持异步绘制的 UILabel
+import UIKit
+import EasyLabel
 
-* 异步绘制
+class ViewController: UIViewController {
 
-```swift
-let label = UILabel()
-label.displaysAsynchronously = true // 默认为 true
-```
-
-* 截断提示 `truncationToken`
-
-```swift
-let label = UILabel()
-label.numberOfLines = 5
-label.lineBreakMode = .byTruncatingTail
-label.truncationToken = NSAttributedString(string: "...[更多]", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-```
-
-使用实例
-
-```swift
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        
 let textFont = UIFont.systemFont(ofSize: 15)
 let screenWidth = UIScreen.main.bounds.width
 let labelWidth = screenWidth-20*2
@@ -55,6 +48,9 @@ label3.textColor = .orange
 label3.text = text2
 label3.truncationToken = NSAttributedString(string: "...[更多]", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
 self.view.addSubview(label3)
-```
+        
+        
+    }
 
-<img src="Resources/image-20210222210855993.png" alt="image-20210222210855993" style="zoom:25%;" />
+}
+
