@@ -36,7 +36,7 @@ label.truncationToken = NSAttributedString(string: "...[更多]", attributes: [N
 self.view.addSubview(label)
 ```
 
-<img src="Resources/image-20210222235815503.png" alt="image-20210222235815503" width="500" align=left />
+<img src="Resources/image-20210222235815503.png" alt="image-20210222235815503" width="500" align=center />
 
 
 
@@ -99,4 +99,4 @@ label5.snp.remakeConstraints { (make) in
 
 
 
-<img src="Resources/image-20210223001215299.png" alt="image-20210223001215299" width="500" align=left />
+<img src="Resources/image-20210223001215299.png" alt="image-20210223001215299" width="500" align=center />
