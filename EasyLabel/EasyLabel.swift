@@ -105,13 +105,13 @@ open class EasyLabel: UIView {
         }
     }
     
-//    public var preferedMaxLayoutWidth: CGFloat = 0 {
-//        didSet {
-//            if self.preferedMaxLayoutWidth != oldValue {
-//                self.invalidateIntrinsicContentSize()
-//            }
-//        }
-//    }
+    public var preferedMaxLayoutWidth: CGFloat = 0 {
+        didSet {
+            if self.preferedMaxLayoutWidth != oldValue {
+                self.invalidateIntrinsicContentSize()
+            }
+        }
+    }
     
     private func drwaTextInRect(_ rect: CGRect) {
         text?.drawInRect(rect, font: font, textColor: textColor, lineBreakMode: lineBreakMode, alignment: textAlignment, truncationToken: truncationToken)
@@ -142,23 +142,19 @@ open class EasyLabel: UIView {
     }
 }
 
-// MARK: - AutoLayout (自动布局暂未支持）
-//extension EasyLabel {
-//
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        invalidateIntrinsicContentSize()
-//    }
-//
-//    override var intrinsicContentSize: CGSize {
-//        let width: CGFloat = (preferedMaxLayoutWidth > 0) ? preferedMaxLayoutWidth : EasyLabelMaxSize.width
-//        let height: CGFloat = (numberOfLines == 0) ? EasyLabelMaxSize.height : (font.lineHeight * CGFloat(numberOfLines))
-//
-//        let maxSize = CGSize(width: width, height: height)
-//        let contentSize: CGSize = text?.size(with: font, constrainedTo: maxSize, lineBreakMode: lineBreakMode) ?? .zero
-//        return contentSize
-//    }
-//}
+// MARK: - AutoLayout
+extension EasyLabel {
+
+    open override var intrinsicContentSize: CGSize {
+        let width: CGFloat = (preferedMaxLayoutWidth > 0) ? preferedMaxLayoutWidth : EasyLabelMaxSize.width
+        let height: CGFloat = (numberOfLines == 0) ? EasyLabelMaxSize.height : (font.lineHeight * CGFloat(numberOfLines))
+
+        let maxSize = CGSize(width: width, height: height)
+        let contentSize: CGSize = text?.size(with: font, constrainedTo: maxSize, lineBreakMode: lineBreakMode) ?? .zero
+        let intrinsicContentWidth = min(contentSize.width, width)
+        return CGSize(width: intrinsicContentWidth, height: contentSize.height)
+    }
+}
 
 // MARK: - YYAsyncLayer
 
