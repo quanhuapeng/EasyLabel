@@ -14,6 +14,6 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/quanhuapeng/EasyLabel.git', :tag => s.version }
  
   s.ios.deployment_target = '11.0'
-  s.source_files = 'EasyLabel/*.{swift}'
+  s.source_files = 'EasyLabel/*.{swift}', 'EasyLabel/YYLayer/*.{swift}'
   s.static_framework = true
 end
